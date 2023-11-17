@@ -1,0 +1,51 @@
+class Employees(models.Model):
+    name=models.CharField(max_length=200)
+    department=models.CharField(max_length=200)
+    salary=models.PositiveIntegerField()
+    email=models.EmailField(unique=True)
+    age=models.PositiveIntegerField()
+    contact=models.CharField(max_length=200,null=True)
+----------------------------------------------------
+orm query for creating a new object:
+>>>Employees.objects.create(name="",department="",salary=,email="",age=,contact="")
+----------------------------------------------------
+orm query for fetching all records:
+>qs=Employees.objects.all()
+----------------------------------------------------
+orm query for fetching a specific Employee details:
+>qs=Employees.objects.get(id=1)
+----------------------------------------------------
+
+orm query for greater than
+qs=Employees.objects.filter(salary__gte=60000)
+lessthan
+qs=Employees.objects.filter(salary__lte=60000)
+__gte =>   greater than equal to
+__lte <=
+__gt  >
+__lt  <
+-----------------------------------------------------
+
+orm query for filtering Employee records:
+qs=Employees.objects.filter(department="developer")
+
+
+--------------------------------------------------
+orm query for excluding object:
+>qs=Employees.objects.exclude(department="hr")
+-------------------------------------------------
+orm query for updating an Employee details:
+>Employees.objects.filter(id=2).update(contact="new contact",age=48)
+
+------------------------------------------------
+orm query for delete Employee details:
+>Employees.objects.filter(id=1).delete()
+-----------------------------------------------------
+sorting
+acending order
+>qs=Employees.objects.all().order_by("salary)
+decending order
+>qs=Employees.objects.all().order_by("-salary")
+
+-----
+field kal already
